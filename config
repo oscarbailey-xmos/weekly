@@ -1,0 +1,21 @@
+#!/bin/bash
+
+NAME="Oscar Bailey"
+ROLE="Applications Engineer"
+OFFICE="Bristol"
+
+EDITOR=nvim
+WEEKLY_DIR=~/.weekly
+
+write_header() {
+cat > $1 << EOF
+$NAME | $ROLE | $OFFICE
+Week $WEEK
+
+This week:
+    - 
+
+Learning and development:
+    - 
+EOF
+}

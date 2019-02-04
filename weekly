@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+source $DIR/config
+
+if [ -z $1 ]; then
+    OFFSET=0
+elif [ $1 == "--prev" ]; then
+    OFFSET=-1
+else
+    OFFSET=$((0 + $1))
+fi
+
+WEEK=$(($(date +%V) + $OFFSET))
+FILENAME="$WEEKLY_DIR/$WEEK.md"
+
+if [ ! -f $FILENAME ]; then
+    write_header $FILENAME
+fi
+
+mkdir -p $WEEKLY_DIR
+$EDITOR $FILENAME
