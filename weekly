@@ -15,6 +15,7 @@ fi
 WEEK=$(($(date +%V) + $OFFSET))
 FILENAME="$WEEKLY_DIR/$WEEK.md"
 
+mkdir -p $WEEKLY_DIR
 if [ ! -f $FILENAME ]; then
     write_header $FILENAME
 fi
