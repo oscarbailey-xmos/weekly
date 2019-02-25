@@ -12,7 +12,7 @@ else
     OFFSET=$((0 + $1))
 fi
 
-WEEK=$(($(date +%V) + $OFFSET))
+WEEK=$(($((10#$(date +%V))) + $((10#$OFFSET))))
 FILENAME="$WEEKLY_DIR/$WEEK.md"
 
 mkdir -p $WEEKLY_DIR
